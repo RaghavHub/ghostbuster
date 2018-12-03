@@ -135,6 +135,10 @@ class ApproximateDynamicInferenceModule(DynamicInferenceModule):
         """
 
         "*** YOUR CODE HERE ***"
+
+        print "num part = ", len(self.particles)
+
+
         weight = util.Counter()
         bins = util.Counter()
         filled = 'N'
@@ -168,7 +172,7 @@ class ApproximateDynamicInferenceModule(DynamicInferenceModule):
                         n_kld = int(((n_bins - 1) / (2.0 * float(e))) * float((t) ** 3))
                 n = n + 1
                 condition = (n < n_kld) and (n < bound)
-                print "kld",n_kld
+                print "kld", n_kld
             self.particles = ls_particles
             if n_kld > 0:
                 self.numParticles = n_kld
@@ -176,7 +180,7 @@ class ApproximateDynamicInferenceModule(DynamicInferenceModule):
         # for ghost in self.game.getGhostTuples():
         #    readingDist = self.game.getReadingDistributionGivenGhostTuple(ghost, observation[0])
         #    self.beliefs[ghost] = self.beliefs.getCount(ghost)*readingDist.getCount(observation[1])
-        print "numpart",len(self.particles)
+        # print "num part = ",len(self.particles)
 
     def elapseTime(self):
         """
